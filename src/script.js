@@ -7,12 +7,12 @@ import * as lil from "lil-gui";
 import gsap from "gsap";
 
 const gui = new lil.GUI();
+
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
 // Scene
 const scene = new THREE.Scene();
-window.scene = scene;
 
 /**
  * Textures
@@ -24,6 +24,7 @@ const matcapTexture = textureLoader.load("/textures/matcaps/3.png");
  * Fonts
  */
 const fontLoader = new FontLoader();
+
 fontLoader.load("fonts/metold.json", (font) => {
   const textGeometry = new TextGeometry("MetallicA", {
     font,
@@ -36,16 +37,20 @@ fontLoader.load("fonts/metold.json", (font) => {
   });
 
   textGeometry.center();
+
   const parameters = {
     color: 0xff0000,
   };
+
   const textMaterial = new THREE.MeshMatcapMaterial({
     matcap: matcapTexture,
     color: parameters.color,
   });
+
   gui.addColor(parameters, "color").onChange(() => {
     textMaterial.color.set(parameters.color);
   });
+
   const text = new THREE.Mesh(textGeometry, textMaterial);
   scene.add(text);
 
@@ -135,6 +140,7 @@ const tick = () => {
   // Update controls
   controls.update();
 
+  // looping though 1000 meshes inside the tick, not sure about the performances... 🤷‍♂️
   scene.children.slice(2).forEach((child) => {
     gsap.to(child.rotation, {
       duration: 1,
