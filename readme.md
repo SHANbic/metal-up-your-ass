@@ -15,3 +15,4 @@ npm run dev
 npm run build
 ```
 # metal-up-your-ass
+This is a Three.js project made from the [awesome course by Bruno Simon](https://threejs-journey.com/).
