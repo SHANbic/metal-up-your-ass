@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: monospace;
 }
 
 html,
@@ -33,7 +34,7 @@ a:hover {
   text-decoration: underline;
 }
 
-.link {
+.github {
   position: absolute;
   right: 10px;
   bottom: 10px;
@@ -43,4 +44,13 @@ a:hover {
   position: absolute;
   left: 10px;
   bottom: 10px;
+}
+
+@media all and (max-width: 576px) {
+  .github {
+    bottom: unset;
+    right: unset;
+    top: 10px;
+    left: 10px;
+  }
 }

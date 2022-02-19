@@ -6,7 +6,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as lil from "lil-gui";
 import gsap from "gsap";
 
-const gui = new lil.GUI();
+const gui = new lil.GUI({ width: 200 });
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
