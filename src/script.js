@@ -6,8 +6,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as lil from "lil-gui";
 import gsap from "gsap";
 
+const isMobile = window.innerWidth < 576;
 const gui = new lil.GUI({ width: 200 });
-
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
@@ -132,9 +132,9 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
  */
 gsap.to(camera.position, {
   duration: 3,
-  x: 4,
+  x: isMobile ? 7 : 5,
   y: -1,
-  z: 4,
+  z: isMobile ? 10 : 5,
 });
 const tick = () => {
   // Update controls
